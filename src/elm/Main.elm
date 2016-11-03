@@ -17,7 +17,7 @@ main =
 type alias Model = Int
 
 model : number
-model = 0
+model = 72
 
 
 -- UPDATE
@@ -27,7 +27,7 @@ update : Msg -> Model -> Model
 update msg model =
   case msg of
     NoOp -> model
-    Increment -> model + 1
+    Increment -> model + 16
 
 
 -- VIEW
@@ -35,15 +35,10 @@ update msg model =
 -- CSS can be applied via class names or inline style attrib
 view : Model -> Html Msg
 view model =
-    div [
-        class "container",
-        style [("margin-top", "30px"), ( "text-align", "center" )]] -- inline CSS (literal)
-    [
-        hello model                                                                     -- ext 'hello' component (takes 'model' as arg)
-        , p [] [ text ( "Elm Webpack Starter" ) ]
-        , button [ onClick Increment ] [                  -- click handler
-            text "FTW!"
-        ] ]
+    div [class "container"] [
+        hello model
+        , button [onClick Increment] [text "Larger"]
+    ]
 
 
 -- CSS STYLES

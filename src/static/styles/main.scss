@@ -1,5 +1,44 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
-@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
 
-// can add Boostrap overrides, additional Sass/CSS below...
+.textShape {
+    position: relative;
+}
+
+.textShape > svg {
+    fill: #ccc8c4;
+}
+
+.textShape > section {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+}
+
+.container {
+    position: relative;
+    margin-top: 2em;
+}
+
+.container .textShape {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.stanza {
+    text-align: center;
+}
+
+.stanza + .stanza {
+    margin-top: 1em;
+}
+
+.line {
+    display: block;
+}
