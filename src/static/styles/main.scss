@@ -9,6 +9,8 @@
 
 .textShape > svg {
     fill: #ccc8c4;
+    width: 100%;
+    height: 100%;
 }
 
 .textShape > section {
@@ -17,6 +19,24 @@
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
+}
+
+.textShape-left, .textShape-right {
+  width: 0;
+  height: 100%;
+  border: 0px solid red;
+}
+
+.textShape-left {
+  float: left;
+  margin-left: -1px;
+  border-left-width: 1px;
+}
+
+.textShape-right {
+  float: right;
+  margin-right: -1px;
+  border-right-width: 1px;
 }
 
 .container {

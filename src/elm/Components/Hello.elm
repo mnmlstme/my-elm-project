@@ -1,7 +1,7 @@
 module Components.Hello exposing (..)
 
 import Html exposing (Html, section, div, h1, p, span, text)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, style)
 import Svg exposing (svg, g, circle)
 import Svg.Attributes exposing (r, height, width, transform)
 
@@ -12,10 +12,13 @@ import String
 hello : Int -> Html a
 hello model =
     let radius = model + 10
+        dim = toString (2 * radius) ++ "px"
     in
-        div [class "textShape"] [
-            svg [height (toString (2 * radius) ++ "px"),
-                    width (toString (2 * radius) ++ "px")] [
+        div [class "textShape",
+                style [("height", dim), ( "width", dim)]] [
+            div [class "textShape-left"] []
+            , div [class "textShape-right"] []
+            , svg [] [
                 g [transform ("translate(" ++ toString radius ++ "," ++ toString radius ++ ")")] [
                     circle [r (toString radius)] []
                 ]
