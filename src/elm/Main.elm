@@ -21,13 +21,14 @@ model = 72
 
 
 -- UPDATE
-type Msg = NoOp | Increment
+type Msg = NoOp | Increment | Reset
 
 update : Msg -> Model -> Model
 update msg model =
   case msg of
     NoOp -> model
     Increment -> model + 16
+    Reset -> 16
 
 
 -- VIEW
@@ -38,6 +39,7 @@ view model =
     div [class "container"] [
         hello model
         , button [onClick Increment] [text "Larger"]
+        , button [onClick Reset] [text "Reset"]
     ]
 
 

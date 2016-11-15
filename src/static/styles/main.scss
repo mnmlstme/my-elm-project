@@ -8,17 +8,17 @@
 }
 
 .textShape > svg {
-    fill: #ccc8c4;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  fill: #ccc8c4;
+  z-index: -1
 }
 
 .textShape > section {
-    position: absolute;
-    top: 0;
-    left: 50%;
     width: 100%;
-    transform: translate(-50%, 0);
 }
 
 .textShape-left, .textShape-right {
@@ -28,15 +28,19 @@
 }
 
 .textShape-left {
+  width: 50%;
   float: left;
   margin-left: -1px;
-  border-left-width: 1px;
+  border-left: 1px solid red;
+  shape-outside: polygon(100% 0, 0 50%, 100% 100%, 0 100%, 0 0);
 }
 
 .textShape-right {
+  width: 50%;
   float: right;
   margin-right: -1px;
-  border-right-width: 1px;
+  border-right: 1px solid red;
+  shape-outside: polygon(0 0, 100% 50%, 0 100%, 100% 100%, 100% 0);
 }
 
 .container {
@@ -55,10 +59,21 @@
     text-align: center;
 }
 
-.stanza + .stanza {
-    margin-top: 1em;
+.stanza + .stanza:before {
+  display: block;
+  width: 100px;
+  content: "";
+  margin: .1em auto;
+  border-top: 1px dotted #222;
 }
 
 .line {
-    display: block;
+  display: inline; }
+
+.line + .line::before {
+  display: inline-block;
+  content: " // ";
+  font-size: 75%;
+  margin-left: .5em;
+  margin-right: .5em;
 }
