@@ -12,17 +12,34 @@ import String
 hello : Int -> Html a
 hello model =
     let radius = model + 10
-        dim = toString (2 * radius) ++ "px"
+        rs = toString radius
+        ds = toString (2 * radius)
+        dim = ds ++ "px"
+        bg =  svg [] [
+            g [transform ("translate(" ++ rs ++ "," ++ rs ++ ")")] [
+                circle [r rs] []
+            ]
+        ]
+        rightPath = "M0 0L" ++ rs ++ " 0L" ++ rs ++ " " ++
+            ds ++ "L0 " ++ ds ++ "L" ++ rs ++ " " ++ rs ++ "Z"
+        leftPath = "M0 0L" ++ rs ++ " 0L0 " ++ rs ++
+            "L" ++ rs ++ " " ++ ds ++ "L0 " ++ ds ++ "Z"
+        urlSvgStart = "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\">"
+        urlSvgEnd = "</svg>')"
+        leftShape = urlSvgStart ++
+            "<path d=\"" ++ leftPath ++ "\"/>" ++
+            urlSvgEnd
+        rightShape = urlSvgStart ++
+            "<path d=\"" ++ rightPath ++ "\"/>" ++
+            urlSvgEnd
     in
         div [class "textShape",
                 style [("height", dim), ( "width", dim)]] [
-            div [class "textShape-left"] []
-            , div [class "textShape-right"] []
-            , svg [] [
-                g [transform ("translate(" ++ toString radius ++ "," ++ toString radius ++ ")")] [
-                    circle [r (toString radius)] []
-                ]
-            ]
+            div [class "textShape-left",
+                    style[("shapeOutside", leftShape)]] []
+            , div [class "textShape-right",
+                    style[("shapeOutside", rightShape)]] []
+            , bg
             , section [class "flow"] [
                 p [class "stanza"] [
                     span [class "line"] [ text "`Twas brillig, and the slithy toves" ]

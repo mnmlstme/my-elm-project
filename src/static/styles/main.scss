@@ -32,14 +32,16 @@
   float: left;
   margin-left: -1px;
   border-left: 1px solid red;
-  shape-outside: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="82" height="164"><path d="M0 0L82 0L0 82 L82 164L0 164Z" fill="blue"/></svg>');}
+  /* shape-outside set dynamically */
+ }
 
 .textShape-right {
   width: 50%;
   float: right;
   margin-right: -1px;
   border-right: 1px solid red;
-  shape-outside: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="82" height="164"><path d="M0 0L82 0L82 164L0 164 L82 82Z" fill="blue"/></svg>');}
+  /* shape-outside set dynamically */
+}
 
 .container {
     position: relative;
