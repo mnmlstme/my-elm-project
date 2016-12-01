@@ -5,9 +5,6 @@ import Html.Attributes exposing (class, style)
 import Svg exposing (svg, g, circle)
 import Svg.Attributes exposing (r, height, width, transform)
 
-import String
-
-
 -- hello component
 hello : Int -> Html a
 hello model =
@@ -20,10 +17,15 @@ hello model =
                 circle [r rs] []
             ]
         ]
-        rightPath = "M0 0L" ++ rs ++ " 0L" ++ rs ++ " " ++
-            ds ++ "L0 " ++ ds ++ "L" ++ rs ++ " " ++ rs ++ "Z"
-        leftPath = "M0 0L" ++ rs ++ " 0L0 " ++ rs ++
-            "L" ++ rs ++ " " ++ ds ++ "L0 " ++ ds ++ "Z"
+        rightPath = "M0 0L" ++ ds ++ " 0" ++
+            "L" ++ ds ++ " " ++ ds ++
+            "L0 " ++ ds ++
+            "A" ++ rs ++ " " ++ rs ++ " 0 0 0 0 0 " ++
+            "Z"
+        leftPath = "M0 0L" ++ ds ++ " 0" ++
+            "A" ++ rs ++ " " ++ rs ++ " 0 0 0 " ++ ds ++ " " ++ ds ++
+            "L0 " ++ ds ++
+            "Z"
         urlSvgStart = "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\">"
         urlSvgEnd = "</svg>')"
         leftShape = urlSvgStart ++
