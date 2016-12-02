@@ -1,13 +1,13 @@
-module Components.Hello exposing (..)
+module Components.Enclave exposing (..)
 
 import Html exposing (Html, section, div, h1, p, span, text)
 import Html.Attributes exposing (class, style)
 import Svg exposing (svg, g, circle)
 import Svg.Attributes exposing (r, height, width, transform)
 
--- hello component
-hello : Int -> Html a
-hello model =
+-- enclave component—flow content into a bounded area
+enclave : Int -> Html a
+enclave model =
     let radius = model + 10
         rs = toString radius
         ds = toString (2 * radius)

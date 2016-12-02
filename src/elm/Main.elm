@@ -4,7 +4,7 @@ import Html.App as Html
 import Html.Events exposing ( onClick )
 
 -- component import example
-import Components.Hello exposing ( hello )
+import Components.Enclave exposing ( enclave )
 
 
 -- APP
@@ -37,7 +37,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [class "container"] [
-        hello model
+        enclave model
         , button [onClick Increment] [text "Larger"]
         , button [onClick Reset] [text "Reset"]
     ]
