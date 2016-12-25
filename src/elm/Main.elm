@@ -3,6 +3,9 @@ import Html.Attributes exposing (..)
 import Html.App as Html
 import Html.Events exposing ( onClick )
 
+import Svg exposing (circle)
+import Svg.Attributes exposing (r)
+
 -- component import example
 import Components.Enclave exposing ( enclave )
 
@@ -28,7 +31,7 @@ update msg model =
   case msg of
     NoOp -> model
     Increment -> model + 16
-    Reset -> 16
+    Reset -> 72
 
 
 -- VIEW
@@ -82,11 +85,13 @@ content = [
 
 view : Model -> Html Msg
 view model =
-    div [class "container"] [
-        enclave model content
-        , button [onClick Increment] [text "Larger"]
-        , button [onClick Reset] [text "Reset"]
-    ]
+    let radius = model
+    in
+        div [class "container"] [
+            enclave radius content
+            , button [onClick Increment] [text "Larger"]
+            , button [onClick Reset] [text "Reset"]
+        ]
 
 
 -- CSS STYLES

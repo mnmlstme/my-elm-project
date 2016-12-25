@@ -1,6 +1,6 @@
 module Components.Enclave exposing (..)
 
-import Html exposing (Html, section, div, h1, p, span, text)
+import Html exposing (Html, section, div)
 import Html.Attributes exposing (class, style)
 import Svg exposing (svg, g, circle)
 import Svg.Attributes exposing (r, height, width, transform)
@@ -8,6 +8,7 @@ import Svg.Attributes exposing (r, height, width, transform)
 -- enclave component—flow content into a bounded area
 enclave : Int -> List (Html msg) -> Html msg
 enclave param content =
+    -- assume for now shape is a circle
     let radius = param + 10
         rs = toString radius
         ds = toString (2 * radius)
